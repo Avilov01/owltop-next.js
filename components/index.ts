@@ -1,2 +1,4 @@
-export * from './Title/Title';
-export * from './Button/Button';
+export * from './Title';
+export * from './Button';
+export * from './P';
+export * from './Tag';
