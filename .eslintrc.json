@@ -15,6 +15,7 @@
         "allowSingleExtends": true
       }
     ],
+    "import/no-unresolved": "off",
     "import/order": [
       "error",
       {
