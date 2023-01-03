@@ -3,6 +3,8 @@ import { FC, ReactNode } from 'react';
 import { Footer } from './Footer';
 import { Header } from './Header';
 import { Sidebar } from './Sidebar';
+import styles from './Layout.module.css';
+
 
 type LayoutProps = {
   children: ReactNode;
@@ -10,15 +12,13 @@ type LayoutProps = {
 
 export const Layout: FC<LayoutProps> = ({ children }) => {
   return (
-    <>
-      <Header />
-      <div>
-        <Sidebar />
-        <div>
+    <div className={styles.wrapper}>
+      <Header className={styles.header}/>
+        <Sidebar className={styles.sidebar}/>
+        <div className={styles.content}>
           {children}
         </div>
-      </div>
-      <Footer />
-    </>
+      <Footer className={styles.footer}/>
+    </div>
   );
 };
