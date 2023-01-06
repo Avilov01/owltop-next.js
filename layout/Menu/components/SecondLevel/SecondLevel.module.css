@@ -1,0 +1,25 @@
+.wrapper {
+    margin: 15px 0 0 12px;
+    padding-left: 32px;
+
+    border-left: 1px solid #DFDFDF;
+}
+
+.secondLevel {
+    cursor: pointer;
+
+    text-transform: uppercase;
+    color: var(--gray-dark);
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.secondLevelBlock {
+    display: none;
+    margin-bottom: 10px;
+}
+
+.opened {
+    display: block;
+}
