@@ -4,9 +4,9 @@ import cn from 'classnames';
 import Link from 'next/link';
 
 import { Visible } from '../../../../components/Visible';
+import { firstLevelMenu } from '../../../../helpers';
 import { MenuItem } from '../../../../interfaces/menu.interface';
 import { TopLevelCategory } from '../../../../interfaces/page.interface';
-import { firstLevelMenu } from '../../utils';
 import { SecondLevel } from '../SecondLevel';
 import styles from './FirstLevel.module.css';
 
