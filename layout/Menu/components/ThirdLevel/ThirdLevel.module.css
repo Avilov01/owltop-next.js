@@ -1,0 +1,18 @@
+.wrapper {
+    padding-top: 13px;
+}
+
+.thirdLevel {
+    display: block;
+    margin-bottom: 10px;
+
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.thirdLevel:hover,
+.active {
+    color: var(--primary);
+}

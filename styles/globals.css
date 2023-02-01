@@ -23,14 +23,13 @@ a {
 		color-scheme: dark;
 	}
 
-	body {
-		color: white;
-	}
+	body {}
 }
 
 :root {
 	--black: #3B434E;
 	--gray-light: #EBEBEB;
+	--gray-dark: #787D85;
 	--white: #FFFFFF;
 	--red: #FC836D;
 	--green: #1DC37E;
