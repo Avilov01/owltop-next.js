@@ -8,24 +8,21 @@ import { MenuItem } from '../../interfaces/menu.interface';
 import { TopLevelCategory, TopPageModel } from '../../interfaces/page.interface';
 import { ProductModel } from '../../interfaces/product.interface';
 import { withLayout } from '../../layout';
+import { TopPageComponent } from '../../page-components';
 
 
-interface CourseProps {
+interface TopPageProps {
   menu: MenuItem[];
   firstCategory: TopLevelCategory;
   page?: TopPageModel;
   products?: ProductModel[];
 }
 
-function Course(props: CourseProps): JSX.Element {
-  return (
-    <div>
-      Course page
-    </div>
-  );
+function TopPage({ products, firstCategory, page }: TopPageProps): JSX.Element {
+  return <TopPageComponent firstCategory={firstCategory} products={products} page={page} />;
 }
 
-export default  withLayout(Course);
+export default  withLayout(TopPage);
 
 export const getStaticPaths: GetStaticPaths = async () => {
   let paths: string[] = [];
@@ -45,7 +42,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<CourseProps> = async ({ params }: GetStaticPropsContext<ParsedUrlQuery>) => {
+export const getStaticProps: GetStaticProps<TopPageProps> = async ({ params }: GetStaticPropsContext<ParsedUrlQuery>) => {
   if (!params) {
     return {
       notFound: true
