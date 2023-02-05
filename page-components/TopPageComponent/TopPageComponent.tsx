@@ -1,7 +1,11 @@
+import { useReducer } from 'react';
+
 import { HhData, Tag, Title, Visible } from '../../components';
 import { Advantages } from '../../components/Advantages';
+import { Sort, SortType } from '../../components/Sort';
 import { TopLevelCategory, TopPageModel } from '../../interfaces/page.interface';
 import { ProductModel } from '../../interfaces/product.interface';
+import { SortReducer, sortReducer } from '../../reducers';
 import styles from './TopPageComponent.module.css';
 
 interface TopPageComponentProps {
@@ -15,18 +19,30 @@ export const TopPageComponent = ({
   page,
   products
 }: TopPageComponentProps): JSX.Element => {
+  const [{
+    products: sortProducts,
+    sort
+  }, dispatchSort] = useReducer<SortReducer>(sortReducer, {
+    products: products || [],
+    sort: 'Rating'
+  });
+
+  const setSort = (sort: SortType) => {
+    dispatchSort({ type: sort});
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>
         <Title variant='h1'>{page?.title}</Title>
         <Visible trigger={products}>
-          <Tag color='green' size='m'>{products?.length}</Tag>
-          <span>Сортировка</span>
+          <Tag color='green' size='m'>{sortProducts?.length}</Tag>
+          <Sort sort={sort} setSort={setSort} />
         </Visible>
       </div>
 
       <div>
-        {products?.map(p => (
+        {sortProducts?.map(p => (
           <div key={p._id}>{p.title}</div>
         ))}
       </div>
